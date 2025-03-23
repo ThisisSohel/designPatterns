@@ -12,6 +12,10 @@ namespace AdapterDesignPatternsExample
             IUSBTypeC adapter = new USBAdapter(oldCharger);
 
             adapter.ChargeWithUSBTypeC();
+
+            OldBankAPI oldBankAPI = new OldBankAPI();
+            INewPaymentGateway paymentGateway = new PaymentAdapter(oldBankAPI);
+            paymentGateway.MakePayment(150.75m);
         }
     }
 }
